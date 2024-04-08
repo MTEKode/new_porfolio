@@ -1,7 +1,7 @@
 import './Nav.sass'
 import MenuButton from "./MenuButton.jsx";
 
-function App() {
+const Nav = () => {
 
     return (
         <>
@@ -13,4 +13,4 @@ function App() {
     )
 }
 
-export default App
+export default Nav

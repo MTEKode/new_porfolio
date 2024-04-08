@@ -24,7 +24,7 @@ const MenuButton = () => {
     };
 
     return (
-        <div style={{position: 'relative'}}>
+        <div className={'menu-button-wrapper'}>
             <button className={'menu-toggle-btn'} onClick={toggleMenu}
                     style={{background: 'none', border: 'none', cursor: 'pointer'}}>
                 <animated.div
