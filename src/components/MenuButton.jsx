@@ -56,18 +56,18 @@ const MenuButton = () => {
                           }}
             >
                 <animated.p style={{transform: y.to(y => `translateY(${y}%)`), marginTop: 0}}
-                            className={'menu-text-separator'}>{t('pages')}</animated.p>
-                <animated.p style={{transform: y.to(y => `translateY(${y}%)`)}}><a href="">{t('about_me')}</a>
+                            className={'menu-text-separator'}>{t('pages.name')}</animated.p>
+                <animated.p style={{transform: y.to(y => `translateY(${y}%)`)}}><a href="">{t('pages.about_me')}</a>
                 </animated.p>
-                <animated.p style={{transform: y.to(y => `translateY(${y}%)`)}}><a href="">{t('works')}</a></animated.p>
+                <animated.p style={{transform: y.to(y => `translateY(${y}%)`)}}><a href="">{t('pages.works')}</a></animated.p>
                 <animated.p style={{transform: y.to(y => `translateY(${y}%)`)}}
-                            className={'menu-text-separator'}>{t('contact')}</animated.p>
+                            className={'menu-text-separator'}>{t('pages.contact')}</animated.p>
                 <animated.p style={{transform: y.to(y => `translateY(${y}%)`)}}><a
                     href="mailto:work@marcostoribio.info">work@marcostoribio.info</a></animated.p>
                 <animated.p style={{transform: y.to(y => `translateY(${y}%)`)}}><a
                     href="https://www.linkedin.com/in/marcos-toribio">LinkedIn/marcos-toribio</a></animated.p>
                 <animated.p style={{transform: y.to(y => `translateY(${y}%)`)}}
-                            className={'menu-text-separator'}>{t('lang')}</animated.p>
+                            className={'menu-text-separator'}>{t('lang.name')}</animated.p>
                 <animated.p style={{transform: y.to(y => `translateY(${y}%)`)}} className={'menu-lang-btn'}><a>en</a>
                 </animated.p>
             </animated.div>

@@ -1,0 +1,36 @@
+@import ../vars
+.works-wrapper
+  height: 100vh
+  display: flex
+  flex-wrap: wrap
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  padding: 150px 10%
+  background-color: $secondary-color
+
+  .articles
+    width: 50%
+    height: 40vh
+    background-color: $secondary-light-color
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08)
+    padding: 5%
+
+    .article-content
+      height: 100%
+      display: flex
+      flex-direction: column
+      flex-wrap: wrap
+      justify-content: space-between
+      h1
+        font-size: 5vw
+        color: $primary-color
+        line-height: .8em
+        font-weight: 900
+
+
+  .articles.cv
+    border-left: 1px solid $primary-color
+
+
+

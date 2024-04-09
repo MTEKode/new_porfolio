@@ -1,0 +1,65 @@
+@import ../vars
+.contact-wrapper
+  height: 100vh
+  display: flex
+  flex-wrap: wrap
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  padding: 150px 10%
+  background-color: $primary-color
+  .contact-article
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 70vh
+    background-color: $primary-light-color
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08)
+    padding: 5%
+    h1
+      font-size: 5vw
+      color: $secondary-color
+      line-height: .8em
+      font-weight: 900
+      margin-bottom: 2vh
+    p
+      font-size: 1.5vw
+      margin-bottom: 2vh
+    .contact-form
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+      font-size: 1.5vw
+      .custom-input-label
+        width: 49%
+        margin-bottom: 2vh
+        .custom-input
+          color: $secondary-color
+          font-size: 1.5vw
+        &:nth-child(1)
+          margin-right: 2%
+      .custom-textarea-label
+        width: 100%
+        height: 20vh
+        margin-bottom: 2vh
+        .custom-textarea
+          color: $secondary-color
+          height: 85%
+      .primary-btn
+        border-color: $secondary-color
+        width: 50%
+        .primary-btn-fill
+          background-color: $secondary-color
+        .primary-btn-text
+          color: $secondary-color
+          &:after
+            color: $secondary-color
+        &:hover
+          .primary-btn-text
+            color: $pure-white
+
+            &:after
+              color: $pure-white
+

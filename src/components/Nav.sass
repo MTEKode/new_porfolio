@@ -1,5 +1,5 @@
 @import ../vars
-header
+.header-content
   position: fixed
   display: flex
   flex-direction: row
@@ -9,8 +9,11 @@ header
   height: 150px
   width: 100%
   padding: 10px 5%
+  z-index: 10
   .home-icon
     color: $secondary-color
     font-size: calc(22px + 2vw)
     font-weight: 900
     height: fit-content
+  .home-icon-primary-color
+    color: $primary-color

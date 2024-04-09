@@ -1,17 +1,20 @@
 @import ./vars
 body
   overflow: hidden
+
 .main-content
   padding: 150px 0
   background: linear-gradient(90deg, $primary-color 67%, $secondary-color 33%)
   display: flex
   flex-direction: row
   justify-content: space-between
+
   .main-div
     display: flex
     flex-direction: column
     padding: 0 10%
     justify-content: center
+
     h1
       font-size: 5vw
       color: $secondary-color
@@ -19,13 +22,100 @@ body
       flex-wrap: wrap
       line-height: .8em
       font-weight: 900
+
     p
       text-align: justify
       margin-top: 20px
       font-size: 16px
+
   .img-div
     margin-right: 20vw
+
     img
       width: 25vw
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1)
       border-radius: 8px
+
+.primary-btn
+  position: relative
+  background-color: transparent
+  padding: 10px
+  border: 1px solid $primary-color
+  cursor: pointer
+  height: 50px
+
+  .primary-btn-fill
+    content: ''
+    background-color: $primary-color
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    width: 0
+    transition: width 0.3s ease
+    z-index: 0
+
+  .primary-btn-text
+    position: relative
+    color: $primary-color
+    text-transform: uppercase
+    font-weight: bold
+    z-index: 1
+
+    &:after
+      content: '\2192'
+      margin-left: 10px
+      font-size: 50px
+      line-height: 0
+      color: $primary-color
+
+  &:hover
+    .primary-btn-fill
+      width: 100%
+
+    .primary-btn-text
+      color: $pure-white
+
+      &:after
+        color: $pure-white
+.custom-input-label
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  color: $primary-dark-color
+  .custom-input, .custom-input-text
+    width: 100%
+  .custom-input
+    position: relative
+    border: none
+    border-bottom: 1px solid $primary-dark-color
+    height: 50px
+    padding: 10px
+    color: $primary-color
+    background-color: transparent
+
+    &::placeholder
+      color: $primary-dark-color
+
+    &:focus
+      outline: none
+      border-color: $secondary-color
+
+.custom-textarea-label
+  color: $primary-dark-color
+  .custom-textarea
+    width: 100%
+    position: relative
+    border: none
+    border-bottom: 1px solid $primary-dark-color
+    padding: 10px
+    color: $primary-color
+    resize: none
+    background-color: transparent
+
+    &::placeholder
+      color: $primary-light-color
+
+    &:focus
+      outline: none
+      border-color: $secondary-color

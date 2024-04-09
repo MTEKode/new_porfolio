@@ -1,12 +1,12 @@
 import './Nav.sass'
 import MenuButton from "./MenuButton.jsx";
 
-const Nav = () => {
+const Nav = ({currentPageIndex}) => {
 
     return (
         <>
             <header className={'header-content'}>
-                <a className={'home-icon'}>Marcos Toribio</a>
+                <a className={`home-icon ${currentPageIndex === 2 ? 'home-icon-primary-color' : ''}`}>Marcos Toribio</a>
                 <MenuButton />
            </header>
         </>

@@ -7,6 +7,9 @@ import {useTranslation} from 'react-i18next'; // Importar hook de traducción
 import Footer from './components/Footer.jsx';
 import {Element, Events, scroller, scrollSpy} from 'react-scroll';
 import { useSwipeable } from 'react-swipeable';
+import AboutMe from "./pages/aboutMe.jsx";
+import Works from "./pages/works.jsx";
+import Contact from "./pages/contact.jsx";
 
 function App() {
     const sectionRefs = useRef([]);
@@ -26,7 +29,6 @@ function App() {
                 currentPageIndex = index;
             }
         });
-        console.log(currentPageIndex)
         return currentPageIndex;
     };
     const scrollToNextSection = () => {
@@ -70,23 +72,25 @@ function App() {
         const handleScroll = (event) => {
             if (isAnimating) return;
 
-            setIsAnimating(true);
             const delta = Math.sign(event.deltaY);
             console.log('handleScroll', delta)
             if (delta > 0 && currentPageIndex < 4) {
+                setIsAnimating(true);
                 scrollToNextSection();
             } else if (delta < 0 && currentPageIndex > 0) {
+                setIsAnimating(true);
                 scrollToPrevSection();
             }
 
         };
 
-        // Escuchar el evento de scroll
         window.addEventListener('wheel', handleScroll);
+        window.addEventListener('resize', handleResize);
 
 
         return () => {
             window.removeEventListener('wheel', handleScroll);
+            window.removeEventListener('resize', handleResize);
         };
     }, [currentPageIndex, isAnimating]);
 
@@ -103,7 +107,7 @@ function App() {
 
     return (
         <div {...handlers}>
-            <Nav/>
+            <Nav currentPageIndex={currentPageIndex}/>
             <Element name='section0' ref={(section) => (sectionRefs.current[0] = section)}>
                 <section className={'main-content'} style={{height: windowHeight}}>
                     <div className={'main-div'}>
@@ -117,40 +121,17 @@ function App() {
             </Element>
             <Element name='section1' ref={(section) => (sectionRefs.current[1] = section)}>
                 <section className={'section'} style={{height: windowHeight}}>
-                    <div>
-                        <div className={'development'}>
-                            <h1>{t('development.title')}</h1>
-                            <p>{t('development.description')}</p>
-                        </div>
-                        <div className={'goals'}>
-                            <h1>{t('goals.title')}</h1>
-                            <p>{t('goals.description')}</p>
-                        </div>
-                    </div>
+                    <AboutMe />
                 </section>
             </Element>
             <Element name='section2' ref={(section) => (sectionRefs.current[2] = section)}>
                 <section className={'section'} style={{height: windowHeight}}>
-                    <div>
-                        <div>
-                            <h1>{t('works.title')}</h1>
-                            <p>{t('works.description')}</p>
-                        </div>
-                        <div>
-                            <h1>{t('cv.title')}</h1>
-                            <p>{t('cv.description')}</p>
-                        </div>
-                    </div>
+                    <Works />
                 </section>
             </Element>
             <Element name='section3' ref={(section) => (sectionRefs.current[3] = section)}>
                 <section className={'section'} style={{height: windowHeight}}>
-                    <div>
-                        <div>
-                            <h1>{t('contact.title')}</h1>
-                            <p>{t('contact.description')}</p>
-                        </div>
-                    </div>
+                    <Contact />
                 </section>
             </Element>
             <Element name='section4' ref={(section) => (sectionRefs.current[4] = section)}>
@@ -162,4 +143,5 @@ function App() {
     );
 }
 
-export default App;
+export default App
+
