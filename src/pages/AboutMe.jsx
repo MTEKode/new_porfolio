@@ -1,4 +1,4 @@
-import './aboutMe.sass'
+import './AboutMe.sass'
 import React from "react";
 import {t} from "i18next";
 

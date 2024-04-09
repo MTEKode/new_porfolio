@@ -1,4 +1,4 @@
-import './contact.sass'
+import './Contact.sass'
 import React from "react";
 import {t} from "i18next";
 

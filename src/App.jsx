@@ -7,9 +7,9 @@ import {useTranslation} from 'react-i18next'; // Importar hook de traducción
 import Footer from './components/Footer.jsx';
 import {Element, Events, scroller, scrollSpy} from 'react-scroll';
 import { useSwipeable } from 'react-swipeable';
-import AboutMe from "./pages/aboutMe.jsx";
-import Works from "./pages/works.jsx";
-import Contact from "./pages/contact.jsx";
+import AboutMe from "./pages/AboutMe.jsx";
+import Works from "./pages/Works.jsx";
+import Contact from "./pages/Contact.jsx";
 
 function App() {
     const sectionRefs = useRef([]);
@@ -49,6 +49,7 @@ function App() {
 
     const handleScrollEnd = () => {
         setIsAnimating(false);
+        setCurrentPageIndex(getCurrentPageIndex())
     };
 
     const handlers = useSwipeable({
@@ -136,7 +137,7 @@ function App() {
             </Element>
             <Element name='section4' ref={(section) => (sectionRefs.current[4] = section)}>
                 <section className={'section'} style={{height: windowHeight}}>
-                    <Footer/>
+                    <Footer setCurrentPageIndex={setCurrentPageIndex}/>
                 </section>
             </Element>
         </div>

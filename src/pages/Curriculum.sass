@@ -1,0 +1,133 @@
+@import ../vars
+.cv-wrapper
+  position: relative
+  display: flex
+  letter-spacing: 1px
+  margin: 100px
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .7)
+  background-color: $bg-dark-color
+
+  .cv-download-button
+    position: absolute
+    right: 20px
+    top: 20px
+    background-color: transparent
+    border: none
+    color: $gray
+    cursor: pointer
+    display: flex
+    align-items: center
+    justify-content: center
+
+    span
+      display: none
+      border-radius: 50%
+      border: 1px solid $gray
+      width: 15px
+      height: 15px
+      font-size: 15px
+      margin-right: 10px
+      align-items: center
+      justify-content: center
+
+  .cv-left-column
+    width: 28%
+    padding: 4%
+
+    .cv-left-column-contact
+      p
+        font-size: 13px
+        margin: 5px 0
+
+    .cv-left-column-tech
+      margin-top: 50px
+
+      h4
+        font-weight: bold
+        font-size: 20px
+        color: $primary-color
+        margin-bottom: 20px
+
+      ul
+        list-style: square
+        margin-left: 20px
+
+        li
+          margin-bottom: 4px
+
+  .link-style
+    font-size: 16px
+    font-weight: bold
+    position: relative
+    color: $primary-color
+
+    &:after
+      content: ''
+      position: absolute
+      background-color: $secondary-color
+      bottom: -1px
+      left: -2px
+      right: -2px
+      height: 3px
+
+  .cv-main-container
+    display: flex
+    flex-direction: column
+    width: 72%
+    padding: 4%
+
+    .cv-main-title
+      h1
+        font-size: 80px
+        line-height: 80px
+        font-weight: bold
+        color: $primary-color
+        margin-bottom: 20px
+
+      h3
+        font-size: 40px
+        font-weight: lighter
+        letter-spacing: 2px
+
+      p
+        text-align: justify
+        margin-bottom: 20px
+
+    .cv-main-exp, .cv-main-studies
+      h2
+        margin-bottom: 20px
+
+      .cv-main-exp-item, .cv-main-studies-item
+        display: flex
+        align-items: start
+        justify-content: space-between
+
+        .cv-main-exp-item-date
+          text-align: right
+          width: 18%
+          color: $gray
+          font-size: 20px
+
+        .cv-main-exp-item-container
+          width: 80%
+
+          .cv-main-exp-item-title
+            font-size: 20px
+            color: $primary-color
+
+          .cv-main-exp-item-company
+            font-size: 14px
+            margin-bottom: 14px
+            color: $gray
+
+          .cv-main-exp-item-desc
+            text-align: justify
+            margin-bottom: 20px
+
+    div
+      h2
+        font-size: 30px
+
+        span
+          font-size: inherit
+
