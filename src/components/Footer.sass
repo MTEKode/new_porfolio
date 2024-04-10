@@ -6,10 +6,12 @@
   flex-direction: row
   justify-content: start
   align-items: end
-  padding: 150px 10%
+  padding: $header-height 10%
   .footer-menu
     width: 70%
     display: flex
+    @include mobile()
+      flex-direction: column
     ul
       width: 100%
       .footer-menu-item

@@ -6,8 +6,11 @@
   flex-direction: row
   justify-content: center
   align-items: center
-  padding: 150px 10%
+  padding: $header-height 10% $wrapper-bottom-padding
   background-color: $secondary-color
+  @include mobile()
+    flex-direction: column
+
 
   .articles
     width: 50%
@@ -15,6 +18,8 @@
     background-color: $secondary-light-color
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08)
     padding: 5%
+    @include mobile()
+      width: 100%
 
     .article-content
       height: 100%
@@ -31,6 +36,9 @@
 
   .articles.cv
     border-left: 1px solid $primary-color
+    @include mobile()
+      border: none
+      border-top: 1px solid $primary-color
 
 
 

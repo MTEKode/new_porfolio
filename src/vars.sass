@@ -14,5 +14,14 @@ $bg-white: #f1ebeb
 $gray-light: #cccccc
 $pure-white: #fff
 
-
+$header-height: calc(70px + 5vw)
+$wrapper-bottom-padding: 8vw
 // Fin Vars
+
+// Mixins
+@mixin tablet
+  @media screen and (max-width: 900px)
+    @content
+@mixin mobile
+  @media screen and (max-width: 767px)
+    @content

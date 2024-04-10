@@ -5,7 +5,11 @@
   flex-direction: column
   justify-content: center
   align-items: start
-  padding: 150px 10%
+  padding: $header-height 10% $wrapper-bottom-padding
+  @include mobile()
+    flex-wrap: wrap
+    flex-direction: row
+    align-items: center
 
   .articles
     width: 100%
@@ -14,6 +18,8 @@
 
     .article-content
       width: 45%
+      @include mobile()
+        width: 100%
 
       h1
         font-size: 5vw
@@ -23,6 +29,8 @@
 
       p
         margin-top: 30px
+        @include mobile()
+          margin-top: 10px
 
   .goals
     display: flex

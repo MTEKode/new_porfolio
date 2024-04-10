@@ -3,11 +3,14 @@ body
   overflow: hidden
 
 .main-content
-  padding: 150px 0
+  padding: $header-height 0
   background: linear-gradient(90deg, $primary-color 67%, $secondary-color 33%)
   display: flex
   flex-direction: row
   justify-content: space-between
+  @include mobile()
+    background: $primary-color
+    flex-wrap: wrap
 
   .main-div
     display: flex
@@ -30,10 +33,20 @@ body
 
   .img-div
     margin-right: 20vw
+    @include mobile()
+      margin-right: 0
+      width: 100%
+      display: flex
+      justify-content: center
+      align-items: center
+      background-color: $secondary-color
 
     img
       width: 25vw
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1)
+      @include mobile()
+        width: 100%
+        max-width: 200px
 
 .primary-btn
   position: relative
@@ -102,6 +115,7 @@ body
 
 .custom-textarea-label
   color: $primary-dark-color
+  font-family: "M PLUS Rounded 1c", sans-serif
   .custom-textarea
     width: 100%
     position: relative
@@ -111,6 +125,7 @@ body
     color: $primary-color
     resize: none
     background-color: transparent
+    font-family: "M PLUS Rounded 1c", sans-serif
 
     &::placeholder
       color: $primary-light-color
