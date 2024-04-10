@@ -81,7 +81,7 @@ const Curriculum = () => {
         html2canvas(input, {
             windowWidth: 1920,
             windowHeight: 1080,
-            scale: 1
+            scale: 0.7
         }).then((canvas) => {
             const imgData = canvas.toDataURL('image/png');
             const pdf = new jsPDF('p', 'mm', 'a4');
