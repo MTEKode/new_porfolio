@@ -3,9 +3,11 @@
   position: relative
   display: flex
   letter-spacing: 1px
-  margin: 100px
+  margin: 8%
   box-shadow: 0 2px 5px rgba(0, 0, 0, .7)
   background-color: $bg-dark-color
+  @include mobile()
+    flex-direction: column
 
   .cv-download-button
     position: absolute
@@ -33,6 +35,8 @@
   .cv-left-column
     width: 28%
     padding: 4%
+    @include mobile()
+      width: 100%
 
     .cv-left-column-contact
       p
@@ -75,19 +79,23 @@
     flex-direction: column
     width: 72%
     padding: 4%
+    @include mobile()
+      width: 100%
 
     .cv-main-title
       h1
-        font-size: 80px
-        line-height: 80px
+        font-size: 8vw
+        line-height: 8vw
         font-weight: bold
         color: $primary-color
-        margin-bottom: 20px
+        margin-bottom: 3vw
 
       h3
-        font-size: 40px
+        font-size: 5vw
+        line-height: 6vw
         font-weight: lighter
         letter-spacing: 2px
+        margin-bottom: 3vw
 
       p
         text-align: justify
@@ -101,15 +109,21 @@
         display: flex
         align-items: start
         justify-content: space-between
+        @include mobile()
+          flex-direction: column
 
         .cv-main-exp-item-date
           text-align: right
           width: 18%
           color: $gray
           font-size: 20px
+          @include mobile()
+            width: 100%
 
         .cv-main-exp-item-container
           width: 80%
+          @include mobile()
+            width: 100%
 
           .cv-main-exp-item-title
             font-size: 20px
@@ -131,3 +145,11 @@
         span
           font-size: inherit
 
+.to-print
+  .cv-wrapper
+    //width: 1920px
+    //height: 1080px
+    //transform: scale(0.5)
+    //transform-origin: top left
+  .cv-download-button
+    display: none

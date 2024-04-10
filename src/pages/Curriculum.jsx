@@ -1,5 +1,7 @@
 import './Curriculum.sass'
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 const Curriculum = () => {
     const data = {
@@ -67,18 +69,44 @@ const Curriculum = () => {
             },
         ]
     }
+    const printRef = useRef(null)
+
     useEffect(() => {
         document.body.style.overflowY = 'scroll'; // Establecer overflow-y del cuerpo como scroll
     }, []);
+
+    const handleDownloadPdf = () => {
+        const input = document.getElementById('cv-wrapper');
+        printRef.current.classList.add('to-print')
+        html2canvas(input, {
+            windowWidth: 1920,
+            windowHeight: 1080,
+            scale: 1
+        }).then((canvas) => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const width = pdf.internal.pageSize.getWidth();
+            const height = pdf.internal.pageSize.getHeight();
+            pdf.addImage(imgData, 'PNG', 0, 0, width, height);
+            pdf.save('curriculum.pdf');
+
+            printRef.current.classList.remove('to-print')
+        });
+    };
+
     return <>
-        <div className="cv-wrapper">
-            <button className='cv-download-button'><span>&#8595;</span>Download</button>
+        <div className="cv-wrapper" id='cv-wrapper' ref={printRef}>
+            <button className='cv-download-button' onClick={handleDownloadPdf}>
+                <span>&#8595;</span>Download
+            </button>
             <div className='cv-left-column'>
                 <div className='cv-left-column-contact'>
                     <a className='link-style' href="/">marcostoribio.info</a>
                     <p>Barcelona, España</p>
                     <a className='link-style' href='mailto:work@marcostoribio.info'>work@marcostoribio.info</a>
-                    <a className='link-style' href="https://www.linkedin.com/in/marcos-toribio">LinkedIn/marcos-toribio</a>
+                    <br/>
+                    <a className='link-style'
+                       href="https://www.linkedin.com/in/marcos-toribio">LinkedIn/marcos-toribio</a>
                 </div>
                 <div className='cv-left-column-tech'>
                     <h4>Tecnologias</h4>

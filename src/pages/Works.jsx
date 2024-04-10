@@ -20,7 +20,7 @@ const Works = () => {
             <div className={'articles cv'}>
                 <div className={'article-content'}>
                     <h1>{t('cv.title')}</h1>
-                    <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+                    <a href="/cv" target="_blank" rel="noopener noreferrer">
                         <button className={'primary-btn'}>
                             <span className={'primary-btn-fill'}></span>
                             <span className={'primary-btn-text'}>{t('works.cv')}</span>
