@@ -3,6 +3,8 @@
   position: relative
   display: flex
   .menu-toggle-btn
+    z-index: 1
+    padding: 10px calc(10px + .8vw)
     div
       span
         font-size: calc(50px - 1vw)
@@ -11,8 +13,8 @@
     background-color: $bg-color
     color: $primary-color
     top: 0
-    right: -15px
-    z-index: -1
+    right: 0
+    z-index: 0
     padding: 50px
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
     .menu-lang-btn
