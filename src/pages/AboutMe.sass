@@ -8,8 +8,9 @@
   padding: $header-height 10% $wrapper-bottom-padding
   @include mobile()
     flex-wrap: wrap
-    flex-direction: row
+    flex-direction: column
     align-items: center
+    justify-content: space-around
 
   .articles
     width: 100%
@@ -20,6 +21,7 @@
       width: 45%
       @include mobile()
         width: 100%
+        font-size: 100%
 
       h1
         font-size: 5vw
@@ -31,7 +33,6 @@
         margin-top: 30px
         @include mobile()
           margin-top: 10px
-          font-size: 1.5vh
 
   .goals
     display: flex
