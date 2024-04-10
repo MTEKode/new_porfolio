@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - '80:80'
-      - '80:433'
+      - '443:80'
     volumes:
       - ./nginx/conf/:/etc/nginx/conf.d/:ro
       - ./certbot/www/:/var/www/certbot/:ro
