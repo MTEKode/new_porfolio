@@ -10,6 +10,7 @@ import { useSwipeable } from 'react-swipeable';
 import AboutMe from "./pages/AboutMe.jsx";
 import Works from "./pages/Works.jsx";
 import Contact from "./pages/Contact.jsx";
+import useOnScreen from "./hooks/useOnScreen.jsx";
 
 function App() {
     const sectionRefs = useRef([]);
@@ -20,22 +21,15 @@ function App() {
 
     const getCurrentPageIndex = () => {
         const scrollPosition = window.scrollY;
-        let currentPageIndex = 0;
-        sectionRefs.current.forEach((ref, index) => {
-            const childrenDiv = ref.childBindings.domNode;
-            const topOffset = childrenDiv.offsetTop;
-            const bottomOffset = topOffset + childrenDiv.offsetHeight;
-            if (scrollPosition >= topOffset && scrollPosition < bottomOffset) {
-                currentPageIndex = index;
-            }
-        });
-        return currentPageIndex;
+        const htmlHeight = document.documentElement.scrollHeight;
+
+        return Math.round((scrollPosition / htmlHeight) * sectionRefs.current.length)
     };
+
     const scrollToNextSection = () => {
         const nextSectionIndex = currentPageIndex + 1;
         const nextSectionName = sectionRefs.current[nextSectionIndex].props.name
         scroller.scrollTo(nextSectionName, {smooth: true, duration: 500});
-        console.log(nextSectionName)
         setCurrentPageIndex(nextSectionIndex)
     };
 
@@ -43,7 +37,6 @@ function App() {
         const nextSectionIndex = currentPageIndex - 1;
         const nextSectionName = sectionRefs.current[nextSectionIndex].props.name
         scroller.scrollTo(nextSectionName, {smooth: true, duration: 500, });
-        console.log(nextSectionName)
         setCurrentPageIndex(nextSectionIndex)
     };
 
@@ -54,7 +47,6 @@ function App() {
 
     const handlers = useSwipeable({
         onSwiped: (eventData) => {
-            console.log("User Swiped!", eventData);
             const delta = Math.sign(eventData.deltaY);
             if (delta > 0 && currentPageIndex > 0) {
                 scrollToPrevSection();
@@ -64,26 +56,26 @@ function App() {
         }
     });
 
+    const handleResize = () => {
+        setWindowHeight(window.innerHeight);
+    };
+
+    const handleScroll = (event) => {
+        if (isAnimating) return;
+
+        const delta = Math.sign(event.deltaY);
+        if (delta > 0 && currentPageIndex < 4) {
+            setIsAnimating(true);
+            scrollToNextSection();
+        } else if (delta < 0 && currentPageIndex > 0) {
+            setIsAnimating(true);
+            scrollToPrevSection();
+        }
+
+    };
+
     useEffect(() => {
         scrollSpy.update();
-        const handleResize = () => {
-            setWindowHeight(window.innerHeight);
-        };
-
-        const handleScroll = (event) => {
-            if (isAnimating) return;
-
-            const delta = Math.sign(event.deltaY);
-            console.log('handleScroll', delta)
-            if (delta > 0 && currentPageIndex < 4) {
-                setIsAnimating(true);
-                scrollToNextSection();
-            } else if (delta < 0 && currentPageIndex > 0) {
-                setIsAnimating(true);
-                scrollToPrevSection();
-            }
-
-        };
 
         window.addEventListener('wheel', handleScroll);
         window.addEventListener('resize', handleResize);
