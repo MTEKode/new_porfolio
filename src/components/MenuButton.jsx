@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useSpring, animated} from '@react-spring/web';
 import './MenuButton.sass';
 import {t} from "i18next";
+import {Link} from "react-scroll";
 
 const MenuButton = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -60,10 +61,11 @@ const MenuButton = () => {
                     {t('pages.name')}
                 </animated.p>
                 <animated.p style={{transform: y.to(y => `translateY(${y}%)`)}}>
-                    <a href="">{t('pages.about_me')}</a>
+                    <Link to={'section1'} smooth={true} duration={500}>{t('pages.about_me')}</Link>
                 </animated.p>
                 <animated.p style={{transform: y.to(y => `translateY(${y}%)`)}}>
-                    <a href="">{t('pages.works')}</a></animated.p>
+                    <Link to={'section3'} smooth={true} duration={500}>{t('pages.works')}</Link>
+                </animated.p>
                 <animated.p style={{transform: y.to(y => `translateY(${y}%)`)}} className={'menu-text-separator'}>
                     {t('pages.contact')}
                 </animated.p>
